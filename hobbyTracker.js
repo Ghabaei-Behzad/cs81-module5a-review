@@ -28,19 +28,21 @@ const hobbyLog = [
 * Calculates the total duration of all hobby sessions.
 * Uses .reduce() to accumulate 'minutes' into a single numeric value.
 */
-// 1. totalTime Function uses .reduce() (a higher-order function) to accumulate a single value from the array.
+// 1. totalTime Function uses .reduce() (a higher-order function) to accumulate a single value 
+//from the array.
 function totalTime(log) {
-// 2. Returns the sum of all 'minutes' properties across all session objects. Reduces the array to a single sum, starting at 0.
+// 2. Returns the sum of all 'minutes' properties across all session objects. Reduces
+//the array to a single sum, starting at 0.
   return log.reduce((sum, session) => sum + session.minutes, 0);
 }
 
 /**
 * The uniqueHobbies function extracts a list of hobbies and removes duplicates.
 * It uses .map() to transform objects into an array of strings (hobby names).
-* The map() method creates a new array by performing a function on each array element. (entry.hobby)
-* A data structure called Set, holds a collection of values. A value can be part of a set only once, 
-* adding it again doesn’t have any effect.  It adds a value to the group (but only if it isn’t 
-* already a member). Thus the output
+* The map() method creates a new array by performing a function on each array element. 
+* (entry.hobby) A data structure called Set, holds a collection of values. A value can be
+* part of a set only once, adding it again doesn’t have any effect.  It adds a value to the
+* group (but only if it isn’t already a member). Thus the output
 * is: Unique hobbies: [ 'drawing', 'reading', 'gaming' ]
 */
 // 3. Function extracts all unique hobby names to identify different activities performed.
@@ -53,14 +55,23 @@ function uniqueHobbies(log) {
 }
 
 /**
-
-
-What each function does
-What each line returns or calculates
-How higher-order functions are being used
+* The longSessions method has two parameters (log, minMinutes),
+* the first parameter uses the filter() method. It creates a shallow copy of
+* a portion of a given array, filtered down to just the elements from the 
+* given array that pass the test implemented by the provided function.
+* The filter() method creates a new array with array elements that pass a test,
+* based on a minimum time threshold. (entry.minutes > minMinutes).
+* This function returns an array of objects where 'minutes' exceeds minMinutes, which is 30. 
+* This is the second parameter (minMinutes).  Thus the output is:
+* Sessions longer than 30 min: [
+* { day: 'Wednesday', hobby: 'gaming', minutes: 45, mood: 'excited' },
+* { day: 'Friday', hobby: 'reading', minutes: 35, mood: 'calm' }
+* ]
 */
+// 6. Function filters the log for sessions that exceed a specific time threshold.
 function longSessions(log, minMinutes) {
-  return log.filter(entry => entry.minutes > minMinutes);
+// 7. .filter() returns a new array containing only elements that pass the minutes comparison.
+ return log.filter(entry => entry.minutes > minMinutes);
 }
 /**
 What each function does
