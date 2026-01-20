@@ -35,15 +35,26 @@ function totalTime(log) {
 }
 
 /**
-What each function does
-What each line returns or calculates
-How higher-order functions are being used
+* The uniqueHobbies function extracts a list of hobbies and removes duplicates.
+* It uses .map() to transform objects into an array of strings (hobby names).
+* The map() method creates a new array by performing a function on each array element. (entry.hobby)
+* A data structure called Set, holds a collection of values. A value can be part of a set only once, 
+* adding it again doesn’t have any effect.  It adds a value to the group (but only if it isn’t 
+* already a member). Thus the output
+* is: Unique hobbies: [ 'drawing', 'reading', 'gaming' ]
 */
+// 3. Function extracts all unique hobby names to identify different activities performed.
 function uniqueHobbies(log) {
+// 4. .map() creates a new array of just strings; 'new Set()' removes duplicates.
   const names = log.map(entry => entry.hobby);
+// 5. Returns a spread array containing only unique hobby names. A new array containing only unique values using Spread and Set.
+// the spread operator (`...`) converts that set back into a standard array.
   return [...new Set(names)];
 }
+
 /**
+
+
 What each function does
 What each line returns or calculates
 How higher-order functions are being used
