@@ -5,6 +5,11 @@
 // Instructor Seno
 // 1/20/2026
 
+/** 
+* The array of objects called hobbyLog represents hobby sessions,
+* and each object contains day, hobby type, duration in minutes, and the mood.
+* We'll get our output using .reduce, .map, and .filter.
+*/
 
 const hobbyLog = [
   { day: "Monday", hobby: "drawing", minutes: 30, mood: "focused" },
@@ -13,15 +18,23 @@ const hobbyLog = [
   { day: "Thursday", hobby: "drawing", minutes: 25, mood: "creative" },
   { day: "Friday", hobby: "reading", minutes: 35, mood: "calm" }
 ];
+
 /**
-What each function does
-What each line returns or calculates
-How higher-order functions are being used
+* The totalTime function uses the reduce method. The reduce() method runs a function
+* on each array element to produce a single value.  A user-supplied "reducer" callback
+* function on each element of the array, in order, passing in the return value from
+* the calculation on the preceding element. The final result of running the reducer
+* across all elements of the array is a single value. Thus making the total time spent 155 minutes.
+* Calculates the total duration of all hobby sessions.
+* Uses .reduce() to accumulate 'minutes' into a single numeric value.
 */
+// 1. totalTime Function uses .reduce() (a higher-order function) to accumulate a single value from the array.
 function totalTime(log) {
+// 2. Returns the sum of all 'minutes' properties across all session objects. Reduces the array to a single sum, starting at 0.
   return log.reduce((sum, session) => sum + session.minutes, 0);
 }
- /**
+
+/**
 What each function does
 What each line returns or calculates
 How higher-order functions are being used
