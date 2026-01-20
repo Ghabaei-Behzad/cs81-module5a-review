@@ -102,7 +102,7 @@ console.log("Focused sessions:", countMood(hobbyLog, "focused"));
 console.log("Number of drawing sessions:", uniqueHobbies(hobbyLog).includes("drawing"));
 
 //Suggest a better function name, reusable code structure, or an added feature.
-//Leave your suggestion as a comment in the file.
+
 /* 
   The function `longSessions` could be improved by adding parameter for `minMinutes` 
   ( function longSessions(log, minMinutes = 30)). This function still works 
@@ -134,7 +134,7 @@ console.log("Drawing:", drawing_Sessions);
 const reading_Time = total_Time(getEntriesBy(hobbyLog, 'hobby', 'reading'));
 console.log("Total minutes reading:", reading_Time);
 
- The countMood function could be countByProperty(log, property, value).
+ Another suggestion: The countMood function could be countByProperty(log, property, value).
   count sessions by hobby name, day, or mood without writing new functions.
  */
 
