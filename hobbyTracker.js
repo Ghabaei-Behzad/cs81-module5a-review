@@ -103,40 +103,36 @@ console.log("Number of drawing sessions:", uniqueHobbies(hobbyLog).includes("dra
 
 //Suggest a better function name, reusable code structure, or an added feature.
 //Leave your suggestion as a comment in the file.
-
 /* 
+  The function `longSessions` could be improved by adding parameter for `minMinutes` 
+  ( function longSessions(log, minMinutes = 30)). This function still works 
+  without an argument. 
   
-  The function `longSessions` could be improved by adding a default parameter for `minMinutes` 
-  (e.g., function longSessions(log, minMinutes = 30)). This ensures the function still works 
-  without an explicit argument. 
-  
-  Create filterBy(log, key, value) function to make reusable for .filter by hobby or day
-  filter by key-value pair.
-  
+  * Create getEntriesBy(log, key, value) function to make reusable for .filter 
+  //*****************************************
   function getEntriesBy(log, key, value) {
   if (typeof value === 'number') {
     return log.filter(entry => entry[key] >= value);
   }
   return log.filter(entry => entry[key] === value);
- }
-////
-const totalTime = (log) => log.reduce((sum, session) => sum + session.minutes, 0);
-
+  }
+  const total_Time = (log) => log.reduce((sum, session) => sum + session.minutes, 0);
+ //*******************************************
 // 1. Using filter to find >= 30 minutes.
-const longSessions = getEntriesBy(hobbyLog, 'minutes', 30);
-console.log("Long Sessions:", longSessions);
+const long_Sessions = getEntriesBy(hobbyLog, 'minutes', 30);
+console.log("Long Sessions:", long_Sessions);
 
 // 2. find moods
-const relaxedSessions = getEntriesBy(hobbyLog, 'mood', 'relaxed');
-console.log("Relaxed:", relaxedSessions.length);
+const relaxed_Sessions = getEntriesBy(hobbyLog, 'mood', 'relaxed');
+console.log("Relaxed:", relaxed_Sessions.length);
 
 // 3. "drawing" 
-const drawingSessions = getEntriesBy(hobbyLog, 'hobby', 'drawing');
-console.log("Drawing sessions:", drawingSessions);
+const drawing_Sessions = getEntriesBy(hobbyLog, 'hobby', 'drawing');
+console.log("Drawing:", drawing_Sessions);
 
 // 4. Combine: "reading"
-const readingTime = totalTime(getEntriesBy(hobbyLog, 'hobby', 'reading'));
-console.log("Total minutes spent reading:", readingTime);
+const reading_Time = total_Time(getEntriesBy(hobbyLog, 'hobby', 'reading'));
+console.log("Total minutes reading:", reading_Time);
 
  The countMood function could be countByProperty(log, property, value).
   count sessions by hobby name, day, or mood without writing new functions.
