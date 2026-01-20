@@ -74,12 +74,19 @@ function longSessions(log, minMinutes) {
  return log.filter(entry => entry.minutes > minMinutes);
 }
 /**
-What each function does
-What each line returns or calculates
-How higher-order functions are being used
+* The countMood function has two parameters (log, moodType)
+* The input "relaxed" is used for moodType. The function returns log.filter
+* which is a function looking to match exactly with a string object having "relaxed" as it's mood.
+* Thus the output is: Number of relaxed sessions: 1
+* It uses the .length method of strings to count matches.
 */
+// 8. Function counts how many times a specific mood occurred in the log.
+// Uses .filter() to create a sub-array of matches, then returns its length.
 function countMood(log, moodType) {
-  return log.filter(entry => entry.mood === moodType).length;
+// 9. The filter returns an array; .length provides the count.
+// It counts how many sessions match a specific mood string.
+// .filter() isolates matching moods, and .length returns the total count as a number.
+return log.filter(entry => entry.mood === moodType).length;
 }
 
 //Suggest a better function name, reusable code structure, or an added feature. Leave your suggestion as a comment in the file.
